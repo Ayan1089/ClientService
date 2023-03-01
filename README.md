@@ -13,9 +13,9 @@ Setting up the environment:
   1) PostgreSQL must be setup either locally or in a remote server.
   2) The datasource details must be provided in the 'application.properties' file under the path `demo/demo-service/src/main/resources/application.properties` - 
   For example:
-    spring.datasource.url=jdbc:postgresql://localhost:5432/test
-    spring.datasource.username=postgres
-    spring.datasource.password=postgres
+    `spring.datasource.url=jdbc:postgresql://localhost:5432/test`
+    `spring.datasource.username=postgres`
+    `spring.datasource.password=postgres`
   
   3) The maven project must be build using "mvn clean install", either through an IDE or directly from command line.
   4) Once the build is successful, the sub-module demo-service creates a "war" file named: "demo-service-1.0.0.war" which can be found under the "target"
@@ -29,7 +29,7 @@ To run the application:
   1) The application can be started either from the IDE - By running the "DemoServiceApplication" with the Program argument - path to the json file.
   or directly from the command line.
   For example:
-    java -jar demo-service-1.0.0.war /Users/ayan/IdeaProjects/demo/demo-service/src/main/resources/ClientData.json
+    `java -jar demo-service-1.0.0.war /Users/ayan/IdeaProjects/demo/demo-service/src/main/resources/ClientData.json`
     
   The application will start running after that.
   
