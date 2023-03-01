@@ -27,7 +27,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public List<Client> getClientListByName(Integer offset, Integer limit) throws RuntimeException {
         return new ArrayList<>(clientRepository.findClientsByNonNullNames(PageRequest.of(offset, limit,
-                Sort.by(Sort.Direction.ASC, "name"))).stream().toList());
+                Sort.by(Sort.Order.asc("name").ignoreCase()))).stream().toList());
     }
 
     @Override
