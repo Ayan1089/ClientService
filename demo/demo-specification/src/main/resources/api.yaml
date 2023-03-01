@@ -1,0 +1,170 @@
+openapi: "3.0.0"
+info:
+  description: "Codegen for a client data service"
+  version: "0.0.1"
+  title: "Client Data Service Specification"
+  contact:
+    email: "abc@example.com"
+tags:
+  - name: "user"
+    description: "User tag for demo purposes"
+  - name: "listWithName"
+    description: "List the users with name"
+  - name: "byLiveLocation"
+    description: "List the users by live location"
+servers:
+  - url: http://localhost:8000/
+    description: "local host"
+paths:
+  /clients/ListWithName:
+    get:
+      tags:
+        - "listWithName"
+      summary: "Retrieves a list of clients by their names sorted alphabetically"
+      operationId: "getClientListByname"
+      parameters:
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            default: 0
+          description: The number of clients to skip before starting to collect the result client list
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 50
+          description: The numbers of clients to return
+      responses:
+        200:
+          description: "List of clients sorted by names alphabetically"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/Clients'
+  /clients/ById/{id}:
+    get:
+      tags:
+        - "user"
+      summary: "Retrieves Client by ID"
+      operationId: "getClientById"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "retrieves client by id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        200:
+          description: "Retrieves client by id"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/Client'
+        400:
+          description: Bad request. User ID must be an integer and larger than 0.
+        404:
+          description: A client with the specified ID was not found.
+  /clients/ByLiveLocation:
+    get:
+      tags:
+        - "byLiveLocation"
+      summary: "Retrieves a list of names"
+      operationId: "getClientsByLiveLocation"
+      parameters:
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            default: 0
+          description: The number of clients to skip before starting to collect the result client list
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 50
+          description: The numbers of clients to return
+      responses:
+        200:
+          description: "List of clients having live location"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                $ref: '#/components/schemas/Clients'
+components:
+  schemas:
+    Clients:
+      type: array
+      items:
+        $ref: '#/components/schemas/Client'
+
+    Client:
+      type: "object"
+      required:
+        - "id"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        about:
+          type: "string"
+        country:
+          type: "string"
+        coverPicture:
+          type: "string"
+        createdAt:
+          type: "string"
+        creditBalance:
+          type: "integer"
+          format: "int32"
+        dob:
+          type: "string"
+        email:
+          type: "string"
+        enablefollowme:
+          type: "boolean"
+        enabletagging:
+          type: "boolean"
+        gender:
+          type: "integer"
+          format: "int32"
+        lat:
+          type: "string"
+        liveLocation:
+          type: "string"
+        livelat:
+          type: "number"
+        livelng:
+          type: "number"
+        lng:
+          type: "string"
+        location:
+          type: "string"
+        myCash:
+          type: "integer"
+          format: "int32"
+        name:
+          type: "string"
+        password:
+          type: "string"
+        profilePicture:
+          type: "string"
+        sendTextmessages:
+          type: "boolean"
+        sendmenotifications:
+          type: "boolean"
+        token:
+          type: "string"
+        updatedAt:
+          type: "string"
+        userStatus:
+          type: "integer"
+          format: "int32"
+        userType:
+          type: "integer"
+          format: "int32"
