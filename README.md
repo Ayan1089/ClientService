@@ -18,8 +18,7 @@ Setting up the environment:
     `spring.datasource.password=postgres`
   
   3) The maven project must be build using "mvn clean install", either through an IDE or directly from command line.
-  4) Once the build is successful, the sub-module demo-service creates a "war" file named: "demo-service-1.0.0.war" which can be found under the "target"
-  folder generated after the maven build. 
+  4) Once the build is successful, the sub-module "demo-service" creates a "war" file named: "demo-service-1.0.0.war" which can be found under the "target" inside the "demo-service" module generated after the maven build. 
   
   NOTE:
   1) The json file - "ClientData.json" file is passed as a program argument to the application
