@@ -26,7 +26,7 @@ Setting up the environment:
   
 To run the application:
   1) The application can be started either from the IDE - By running the "DemoServiceApplication" with the Program argument - path to the json file.
-  or directly from the command line.
+  or directly from the command line -  `java -jar demo-service-1.0.0.war <pathToJsonFile>`
   For example:
     `java -jar demo-service-1.0.0.war /Users/ayan/IdeaProjects/demo/demo-service/src/main/resources/ClientData.json`
     
