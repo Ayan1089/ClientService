@@ -32,7 +32,12 @@ To run the application:
     
   The application will start running after that.
   
-  A postman collection is also attached to this changelist so that the APIs can be tested seemlessly.
+  
+  APIs:
+  1) A postman collection is also attached to this changelist so that the APIs can be tested seemlessly.
+  2) The APIs have the `clients` as the resource followed by the path mentioned in the `ProgrammingTask.pdf` for the specific APIs
+  3) Pagination is implemented for the APIs - `/ListWithName` and `/ByLiveLocation` as the number of the results returned can be huge.
+  4) The corner cases for the `/ById/#id` are also covered.
     
     
   
